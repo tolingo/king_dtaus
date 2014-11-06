@@ -2,6 +2,5 @@ deployment:
   production:
     branch: master
     commands:
-      - gem install geminabox
       - gem build king_dtaus.gemspec
-      - gem inabox king_dtaus-*.gem --host $GEMINABOX_URL
+      - curl -F package=@$(ls king_dtaus*.gem) https://$GEMFURY_TOKEN@push.fury.io/ad2games/
