@@ -11,7 +11,7 @@ module KingDta
     # === Parameter
     # typ<String>:: valid strings are 'LK' (Lastschrift Kunde) and 'GK' (Gutschrift Kunde)
     # typ<Date>:: date when the the transfer is to be created
-    def initialize( typ, date=Date.today )
+    def initialize(typ, date = Date.respond_to?(:current) ? Date.current : Date.today)
       raise ArgumentError.new("Unknown order type: #{typ}. Allowed Values are LK, GK") unless ['LK','GK'].include?(typ)
       @typ = typ
       super(date)
