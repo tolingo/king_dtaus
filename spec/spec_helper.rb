@@ -12,6 +12,8 @@ require 'rspec'
 require 'ostruct'
 require 'date'
 
+I18n.config.available_locales = :en
+
 RSpec.configure do |config|
 end
 
