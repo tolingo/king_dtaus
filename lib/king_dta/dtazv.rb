@@ -58,7 +58,7 @@ module KingDta
       data1  = '0256'
       data1 += 'Q'
       data1 += '%08i'   %  @account.bank_number
-      data1 += '%010i'  %  @account.bank_account_number
+      data1 += '%010i'  %  @account.bank_account_number.to_i
       data1 += '%-035s' %  @account.owner_name[0..34]
       data1 += '%-035s' %  @account.owner_name[25..69]
       data1 += '%-035s' %  @account.owner_street
@@ -199,7 +199,7 @@ module KingDta
       data2 += 'T'
       data2 += '%08i' % @account.bank_number
       data2 += 'EUR'
-      data2 += '%010i'  % @account.bank_account_number
+      data2 += '%010i'  % @account.bank_account_number.to_i
       data2 += @date.strftime("%y%m%d")                             # KANN, 5 Ausführungstermin Einzelzahlung, wenn abweichend von Q8
       data2 += '%08i'  % 0                                          # KANN/PFLICHT 6 BLZ
       data2 += '%03s' % ''                                          # KANN/PFLICHT 7a ISO-Währungscode

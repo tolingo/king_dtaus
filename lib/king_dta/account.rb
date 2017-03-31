@@ -52,7 +52,7 @@ module KingDta
       raise ArgumentError.new('Bank account number too long, max 35 allowed') if nr_str.length > 35
       raise ArgumentError.new('Bank account number cannot be 0') if nr_str == '0'
 
-      @bank_account_number = nr_str.to_i
+      @bank_account_number = nr_str
     end
 
     # Cast given bank number to integer. Strips spaces and leading zeros

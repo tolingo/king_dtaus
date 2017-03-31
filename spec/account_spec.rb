@@ -34,15 +34,15 @@ describe KingDta::Account do
     }.should_not raise_error
   end
 
-  it "should convert bank_account_number to integer" do
+  it "should not convert bank_account_number to integer but remove spaces" do
     opts = {:bank_account_number => '0123456',
              :bank_number => @ba.bank_number,
              :owner_name => @ba.owner_name}
     anct = KingDta::Account.new(opts)
-    anct.bank_account_number.should == 123456
+    anct.bank_account_number.should == '0123456'
 
     anct2 = KingDta::Account.new(opts.merge(:bank_account_number=>'012 345 6'))
-    anct2.bank_account_number.should == 123456
+    anct2.bank_account_number.should == '0123456'
   end
 
   it "should convert bank_number to integer" do
