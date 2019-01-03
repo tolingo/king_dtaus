@@ -24,9 +24,9 @@ module KingDta
       end
       @currency = currency
       if value.is_a?(String)
-        value = BigDecimal.new value.sub(',', '.')
+        value = BigDecimal(value.sub(',', '.'))
       elsif value.is_a?(Numeric)
-        value = BigDecimal.new value.to_s
+        value = BigDecimal(value.to_s)
       else
         raise Exception.new("Gimme a value as a String or Numeric. You gave me a #{value.class}")
       end
